@@ -8,10 +8,10 @@ app.use(express.json());
 const cors = require("cors");
 app.use(cors());
 
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "./../public")));
 
 app.get("/", (req, resp) => {
-  resp.render("./public/index.html");
+  resp.render("/index.html");
 });
 
 app.get("/about", (req, res) => {
