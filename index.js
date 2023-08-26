@@ -14,14 +14,14 @@ app.get("/", (req, resp) => {
   resp.render("./public/index.html");
 });
 
-app.get("/teams", (req, resp) => {
+app.get("/about", (req, res) => {
+  res.send("This is my about route..... ");
+});
+
+app.get("/api/teams", (req, resp) => {
   let rawdata = fs.readFileSync("./data/teams.json");
   let teams = JSON.parse(rawdata);
   resp.send(teams);
-});
-
-app.get("/about", (req, res) => {
-  res.send("This is my about route..... ");
 });
 
 const PORT = 4000;
