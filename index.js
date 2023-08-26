@@ -3,7 +3,7 @@ const fs = require("fs");
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("Express on Vercel");
+  res.render("index.html");
 });
 
 app.get("/api/teams", (req, resp) => {
