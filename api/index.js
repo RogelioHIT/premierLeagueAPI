@@ -1,30 +1,14 @@
 const express = require("express");
-const fs = require("fs");
-const path = require("path");
 
 const app = express();
-app.use(express.json());
-
-// const cors = require("cors");
-// app.use(cors());
-
-// app.use(express.static(path.join(__dirname, "./../public")));
-
-// app.get("/", (req, resp) => {
-//   resp.render("/index.html");
-// });
 
 app.get("/", (req, res) => {
-  res.send("API WORKING 😎");
+  res.send("Express on Vercel");
 });
 
-app.get("/api/teams", (req, resp) => {
-  let rawdata = fs.readFileSync("./data/teams.json");
-  let teams = JSON.parse(rawdata);
-  resp.send(teams);
+app.listen(5000, () => {
+  console.log("Running on port 5000.");
 });
 
-const PORT = 4000;
-app.listen(PORT, () => {
-  console.log("Server listening on port", PORT);
-});
+// Export the Express API
+module.exports = app;
