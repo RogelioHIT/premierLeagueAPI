@@ -1,4 +1,5 @@
 const express = require("express");
+const fs = require("fs");
 const app = express();
 
 app.get("/", (req, res) => {
@@ -6,7 +7,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/teams", (req, resp) => {
-  let rawdata = fs.readFileSync("./data/teams.json");
+  let rawdata = fs.readFileSync("./public/data/teams.json");
   let teams = JSON.parse(rawdata);
   resp.send(teams);
 });
